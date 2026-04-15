@@ -17,7 +17,6 @@ public class CommentResponse {
     private Boolean deleted;
     private LocalDateTime createdAt;
 
-
     public static CommentResponse from(Comment comment) {
         CommentResponse response = new CommentResponse();
         response.commentId = comment.getCommentId();
