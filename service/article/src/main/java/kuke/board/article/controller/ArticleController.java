@@ -1,5 +1,6 @@
 package kuke.board.article.controller;
 
+import kuke.board.article.entity.BoardArticleCount;
 import kuke.board.article.service.ArticleService;
 import kuke.board.article.service.request.ArticleCreateRequest;
 import kuke.board.article.service.request.ArticleUpdateRequest;
@@ -51,5 +52,10 @@ public class ArticleController {
     @DeleteMapping("/v1/articles/{articleId}")
     public void delete(@PathVariable Long articleId) {
         articleService.delete(articleId);
+    }
+
+    @GetMapping("/v1/articles/boards/{boardId}/count")
+    public Long count(@PathVariable Long boardId) {
+        return articleService.count(boardId);
     }
 }

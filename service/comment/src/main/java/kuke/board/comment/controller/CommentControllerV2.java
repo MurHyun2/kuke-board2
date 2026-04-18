@@ -6,6 +6,7 @@ import kuke.board.comment.service.request.CommentCreateRequest;
 import kuke.board.comment.service.request.CommentCreateRequestV2;
 import kuke.board.comment.service.response.CommentPageResponse;
 import kuke.board.comment.service.response.CommentResponse;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,5 +50,12 @@ public class CommentControllerV2 {
             @RequestParam("pageSize") Long pageSize
     ) {
         return commentService.readAllInfiniteScroll(articleId, lastPath, pageSize);
+    }
+
+    @GetMapping("/v2/comments/articles/{articleId}/count")
+    public Long count(
+            @PathVariable("articleId") Long articleId
+    ) {
+        return commentService.count(articleId);
     }
 }
