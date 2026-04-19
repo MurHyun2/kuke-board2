@@ -18,16 +18,17 @@ public class ViewApiTest {
         for (int i = 0; i < 10_000; i++) {
             executorService.submit(() -> {
                 restClient.post()
-                        .uri("/v1/article-views/articles/{articleId}/users/{userId}", 3L, 1L)
+                        .uri("/v1/article-views/articles/{articleId}/users/{userId}", 4L, 1L)
                         .retrieve();
                 latch.countDown();
             });
         }
 
         latch.await();
+        executorService.shutdown();
 
         Long count = restClient.get()
-                .uri("/v1/article-views/articles/{articleId}/count", 3L)
+                .uri("/v1/article-views/articles/{articleId}/count", 4L)
                 .retrieve()
                 .body(Long.class);
         System.out.println("count = " + count);
