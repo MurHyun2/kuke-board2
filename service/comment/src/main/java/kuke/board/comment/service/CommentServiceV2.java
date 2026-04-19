@@ -2,7 +2,6 @@ package kuke.board.comment.service;
 
 import jakarta.transaction.Transactional;
 import kuke.board.comment.entity.ArticleCommentCount;
-import kuke.board.comment.entity.Comment;
 import kuke.board.comment.entity.CommentPath;
 import kuke.board.comment.entity.CommentV2;
 import kuke.board.comment.repository.ArticleCommentCountRepository;
